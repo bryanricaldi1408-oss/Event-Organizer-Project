@@ -1,0 +1,51 @@
+1. Fitur Umum (Autentikasi)
+
+
+
+Login & Logout: Fitur keamanan untuk masuk ke dalam sistem sesuai hak akses (sebagai Pemilik Usaha atau Asisten).
+
+
+
+2. Fitur untuk Pemilik Usaha (Kapi)
+
+
+
+Fitur ini berfokus pada manajemen data induk (master data) dan analisis bisnis.
+
+Manajemen Data Asisten: Mengelola (tambah, ubah, hapus) data asisten, seperti nama, alamat, dan kontak.
+
+Manajemen Data Vendor: Mengelola informasi vendor, termasuk nama pemilik, alamat, kontak, dan kisaran harga.
+
+Manajemen Jenis Vendor: Mengkategorikan vendor (contoh: Venue, Katering, MC, MUA, dll).
+
+Laporan Kerja Sama Vendor: Melihat analisis vendor mana yang paling sering diajak kerja sama (frekuensi penggunaan vendor).
+
+Laporan Monitoring Event: Melihat daftar event yang akan datang (upcoming) dan event yang sudah berlalu, beserta informasi asisten yang bertanggung jawab.
+
+
+
+3. Fitur untuk Asisten
+
+
+
+Fitur ini berfokus pada operasional sehari-hari dan penanganan klien.
+
+Manajemen Data Klien: Mencatat dan mengelola data klien baru (nama, alamat, kontak).
+
+Manajemen Data Event: Mencatat detail event (Jenis event seperti Sweet 17/Wedding, tanggal, jumlah undangan).
+
+Pencarian & Pemilihan Vendor:
+
+Melihat daftar vendor berdasarkan kategori/jenis tertentu.
+
+Memilih (assign) vendor-vendor yang akan digunakan untuk satu event tertentu.
+
+Manajemen Harga Dealing (Budgeting):
+
+Menginput atau mengubah harga kesepakatan (dealing) dengan vendor untuk event spesifik (karena harga bisa berbeda dari kisaran standar).
+
+Sistem menghitung total estimasi budget berdasarkan input harga dealing tersebut.
+
+Laporan Rincian Budgeting: Mencetak atau melihat rincian biaya per event untuk ditunjukkan kepada klien.
+
+Laporan Status Event: Melihat riwayat event yang pernah ditangani dan daftar event yang sedang aktif (belum terlaksana).
