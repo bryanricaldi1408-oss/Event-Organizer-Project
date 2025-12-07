@@ -1,0 +1,314 @@
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    color: #1f2937;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Navbar (Sama) --- */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.brand h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.brand p {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.user-role {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* --- Tabs (Sama) --- */
+.tabs-container {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tabs {
+    display: flex;
+    gap: 2rem;
+}
+
+.tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.25rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    color: #374151;
+    border-bottom-color: #d1d5db;
+}
+
+.tab.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+/* --- Common UI --- */
+.main-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.page-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+}
+
+.btn-logout { background-color: #b91c1c; color: white; }
+.btn-logout:hover { background-color: #991b1b; }
+
+.btn-primary { background-color: #2563eb; color: white; }
+.btn-primary:hover { background-color: #1d4ed8; }
+
+.btn-green { background-color: #16a34a; color: white; }
+.btn-green:hover { background-color: #15803d; }
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.btn-edit { color: #2563eb; }
+.btn-delete { color: #ef4444; }
+
+/* Table Styles (Untuk halaman Klien) */
+.table-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th { background-color: #f9fafb; padding: 1rem 1.5rem; text-align: left; font-size: 0.75rem; font-weight: 700; color: #374151; text-transform: uppercase; border-bottom: 1px solid #e5e7eb; }
+.data-table td { padding: 1rem 1.5rem; font-size: 0.875rem; color: #4b5563; border-bottom: 1px solid #e5e7eb; }
+
+/* --- NEW: Event Card Styles (Untuk halaman Event) --- */
+.card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.event-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.event-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Badges */
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.badge-blue {
+    background-color: #dbeafe; /* Biru muda */
+    color: #2563eb;
+}
+
+.badge-purple {
+    background-color: #f3e8ff; /* Ungu muda */
+    color: #9333ea;
+}
+
+/* Event Detail Grid */
+.event-details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.detail-item p {
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+.font-bold { font-weight: 700; }
+
+/* Vendor Section */
+.vendor-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+}
+
+.vendor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.vendor-header h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+/* Vendor Grid */
+.vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default 3 kolom */
+    gap: 1rem;
+}
+
+.vendor-card {
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 0.375rem;
+    padding: 1rem;
+}
+
+.vendor-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.vendor-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151;
+    margin-right: 0.5rem;
+}
+
+.vendor-price {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #16a34a; /* Hijau Uang */
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .vendor-grid { grid-template-columns: repeat(2, 1fr); }
+    .event-details-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .navbar-content { flex-direction: column; height: auto; padding: 1rem; gap: 1rem; }
+    .tabs { overflow-x: auto; padding-bottom: 5px; } /* Scroll tab di HP */
+    .vendor-grid { grid-template-columns: 1fr; }
+    .event-details-grid { grid-template-columns: 1fr; }
+    .card-header-row { flex-direction: column; gap: 1rem; }
+}

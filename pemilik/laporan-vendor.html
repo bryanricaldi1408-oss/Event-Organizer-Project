@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Vendor - Kapi Event Organizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/pemilik/laporan-vendor.css">
+    <script src="/js/pemilik/laporan-vendor.js" defer></script>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="brand-section">
+            <h1>Kapi Event Organizer</h1>
+            <p>Dashboard Pemilik Usaha</p>
+        </div>
+        <div class="user-section">
+            <div class="user-info">
+                <span class="name">Kapi (Pemilik)</span>
+                <span class="role">Pemilik Usaha</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fa-solid fa-users-gear"></i> Kelola Asisten
+        </a>
+        <a href="vendor.html" class="nav-item">
+            <i class="fa-solid fa-shop"></i> Kelola Vendor
+        </a>
+        <a href="jenis-vendor.html" class="nav-item">
+            <i class="fa-solid fa-tags"></i> Jenis Vendor
+        </a>
+        <a href="laporan-vendor.html" class="nav-item active">
+            <i class="fa-solid fa-chart-line"></i> Laporan Vendor
+        </a>
+        <a href="laporan-event.html" class="nav-item">
+            <i class="fa-regular fa-calendar-check"></i> Laporan Event
+        </a>
+    </nav>
+
+    <main class="main-container">
+        
+        <div class="page-title">
+            <h2>Laporan Kerja Sama Vendor</h2>
+            <p>Analisis vendor yang paling sering bekerja sama</p>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-header">
+                <div class="hero-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span class="hero-label">Vendor Terbaik</span>
+            </div>
+            <div class="hero-vendor-name">Rasa Nusantara Catering</div>
+            <div class="hero-stats">
+                5 kali kerja sama • Rp 300.000.000 total nilai
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <label class="filter-label">Urutkan Berdasarkan</label>
+            <select class="filter-select">
+                <option value="jumlah">Jumlah Kerja Sama</option>
+                <option value="nilai">Total Nilai Kontrak</option>
+                <option value="nama">Nama Vendor (A-Z)</option>
+            </select>
+        </div>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Peringkat</th>
+                        <th>Nama Vendor</th>
+                        <th>Jenis</th>
+                        <th>Jumlah Kerja Sama</th>
+                        <th>Total Nilai Kontrak</th>
+                    </tr>
+                </thead>
+                <tbody id="vendorTableBody">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

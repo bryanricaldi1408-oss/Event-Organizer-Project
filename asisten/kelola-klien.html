@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapi Event Organizer - Dashboard</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="./Assets/kelola-klien.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="brand">
+                <h1>Kapi Event Organizer</h1>
+                <p>Dashboard Asisten</p>
+            </div>
+
+            <div class="user-actions">
+                <div class="user-info">
+                    <p class="user-name">Dina Kusuma</p>
+                    <p class="user-role">Asisten</p>
+                </div>
+                <button class="btn btn-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tabs-container">
+        <div class="container">
+            <div class="tabs">
+                <a href="kelola-klien.html" class="tab active">
+                    <i class="fa-solid fa-users"></i>
+                    Kelola Klien
+                </a>
+                <a href="kelola-event.html" class="tab">
+                    <i class="fa-regular fa-calendar"></i>
+                    Kelola Event
+                </a>
+                <a href="laporan-budget.html" class="tab">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Laporan Budget
+                </a>
+                <a href="event-saya.html" class="tab">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Event Saya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        
+        <div class="page-header">
+            <div>
+                <h2>Manajemen Klien</h2>
+                <p class="subtitle">Kelola data klien event organizer</p>
+            </div>
+            <button class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i>
+                Tambah Klien
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Nama</th>
+                        <th style="width: 15%;">Email</th>
+                        <th style="width: 12%;">Telepon</th>
+                        <th style="width: 20%;">Alamat</th>
+                        <th style="width: 25%;">Catatan</th>
+                        <th style="width: 13%; text-align: center;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-medium">Dodo Prasetyo</td>
+                        <td>dodo@email.com</td>
+                        <td>081234560001</td>
+                        <td>Jl. Gatot Subroto No. 100, Jakarta</td>
+                        <td>Klien untuk event Sweet 17 anak bungsunya</td>
+                        <td class="text-center">
+                            <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Rina & Budi</td>
+                        <td>rinabudi@email.com</td>
+                        <td>081234560002</td>
+                        <td>Jl. Sudirman No. 200, Jakarta</td>
+                        <td>Pasangan yang akan menikah</td>
+                        <td class="text-center">
+                            <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">PT. Maju Sejahtera</td>
+                        <td>hrd@majusejahtera.com</td>
+                        <td>021-7777777</td>
+                        <td>Jl. Thamrin No. 300, Jakarta</td>
+                        <td>Company gathering tahunan</td>
+                        <td class="text-center">
+                            <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Ibu Susi Hartono</td>
+                        <td>susi@email.com</td>
+                        <td>081234560004</td>
+                        <td>Jl. Rasuna Said No. 400, Jakarta</td>
+                        <td>Ulang tahun ke-50</td>
+                        <td class="text-center">
+                            <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Keluarga Wijaya</td>
+                        <td>wijaya@email.com</td>
+                        <td>081234560005</td>
+                        <td>Jl. Kuningan No. 500, Jakarta</td>
+                        <td>Acara syukuran pernikahan anak</td>
+                        <td class="text-center">
+                            <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

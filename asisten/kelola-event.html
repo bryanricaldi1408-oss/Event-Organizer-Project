@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapi Event Organizer - Kelola Event</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="./Assets/kelola-event.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="brand">
+                <h1>Kapi Event Organizer</h1>
+                <p>Dashboard Asisten</p>
+            </div>
+            <div class="user-actions">
+                <div class="user-info">
+                    <p class="user-name">Dina Kusuma</p>
+                    <p class="user-role">Asisten</p>
+                </div>
+                <button class="btn btn-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tabs-container">
+        <div class="container">
+            <div class="tabs">
+                <a href="kelola-klien.html" class="tab">
+                    <i class="fa-solid fa-users"></i>
+                    Kelola Klien
+                </a>
+                <a href="kelola-event.html" class="tab active">
+                    <i class="fa-regular fa-calendar"></i>
+                    Kelola Event
+                </a>
+                <a href="laporan-budget.html" class="tab">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Laporan Budget
+                </a>
+                <a href="event-saya.html" class="tab">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Event Saya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        
+        <div class="page-header">
+            <div>
+                <h2>Manajemen Event</h2>
+                <p class="subtitle">Kelola event dan vendor untuk setiap event</p>
+            </div>
+            <button class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i>
+                Tambah Event
+            </button>
+        </div>
+
+        <div class="event-list">
+
+            <div class="card">
+                <div class="card-header-row">
+                    <div class="event-title-group">
+                        <h3 class="event-name">Dodo Prasetyo</h3>
+                        <span class="badge badge-blue">Sweet 17</span>
+                    </div>
+                    <div class="event-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+                <div class="event-details-grid">
+                    <div class="detail-item">
+                        <label>Tanggal:</label>
+                        <p>3 Januari 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Undangan:</label>
+                        <p>200 orang</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Lokasi:</label>
+                        <p>Grand Ballroom Hotel Santika</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Total Budget:</label>
+                        <p class="font-bold">Rp 106.000.000</p>
+                    </div>
+                </div>
+
+                <div class="vendor-section">
+                    <div class="vendor-header">
+                        <h4>Vendor yang Digunakan</h4>
+                        <button class="btn btn-sm btn-green">
+                            <i class="fa-solid fa-store"></i> Kelola Vendor
+                        </button>
+                    </div>
+
+                    <div class="vendor-grid">
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Wombi Cake & Bakery</span>
+                                <span class="badge badge-purple">Kue & Dessert</span>
+                            </div>
+                            <p class="vendor-price">Rp 6.000.000</p>
+                        </div>
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Cahaya Dekorasi</span>
+                                <span class="badge badge-purple">Dekorasi</span>
+                            </div>
+                            <p class="vendor-price">Rp 50.000.000</p>
+                        </div>
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Rasa Nusantara Catering</span>
+                                <span class="badge badge-purple">Katering</span>
+                            </div>
+                            <p class="vendor-price">Rp 30.000.000</p>
+                        </div>
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Lensa Indah Photography</span>
+                                <span class="badge badge-purple">Fotografer</span>
+                            </div>
+                            <p class="vendor-price">Rp 15.000.000</p>
+                        </div>
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Cantik Selamanya MUA</span>
+                                <span class="badge badge-purple">MUA (Makeup Artist)</span>
+                            </div>
+                            <p class="vendor-price">Rp 5.000.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="card">
+                <div class="card-header-row">
+                    <div class="event-title-group">
+                        <h3 class="event-name">Rina & Budi</h3>
+                        <span class="badge badge-blue">Wedding</span>
+                    </div>
+                    <div class="event-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+                <div class="event-details-grid">
+                    <div class="detail-item">
+                        <label>Tanggal:</label>
+                        <p>2 Februari 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Undangan:</label>
+                        <p>500 orang</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Lokasi:</label>
+                        <p>Grand Ballroom Hotel Santika</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Total Budget:</label>
+                        <p class="font-bold">Rp 562.000.000</p>
+                    </div>
+                </div>
+
+                <div class="vendor-section">
+                    <div class="vendor-header">
+                        <h4>Vendor yang Digunakan</h4>
+                        <button class="btn btn-sm btn-green">
+                            <i class="fa-solid fa-store"></i> Kelola Vendor
+                        </button>
+                    </div>
+
+                    <div class="vendor-grid">
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Grand Ballroom Hotel Santika</span>
+                                <span class="badge badge-purple">Venue</span>
+                            </div>
+                            <p class="vendor-price">Rp 80.000.000</p>
+                        </div>
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Wombi Cake & Bakery</span>
+                                <span class="badge badge-purple">Kue & Dessert</span>
+                            </div>
+                            <p class="vendor-price">Rp 25.000.000</p>
+                        </div>
+                        <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Cahaya Dekorasi</span>
+                                <span class="badge badge-purple">Dekorasi</span>
+                            </div>
+                            <p class="vendor-price">Rp 120.000.000</p>
+                        </div>
+                         <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Rasa Nusantara Catering</span>
+                                <span class="badge badge-purple">Katering</span>
+                            </div>
+                            <p class="vendor-price">Rp 150.000.000</p>
+                        </div>
+                         <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Lensa Indah Photography</span>
+                                <span class="badge badge-purple">Fotografer</span>
+                            </div>
+                            <p class="vendor-price">Rp 30.000.000</p>
+                        </div>
+                         <div class="vendor-card">
+                            <div class="vendor-top">
+                                <span class="vendor-name">Cinema Wedding Video</span>
+                                <span class="badge badge-purple">Videografer</span>
+                            </div>
+                            <p class="vendor-price">Rp 35.000.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </main>
+</body>
+</html>

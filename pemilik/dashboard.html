@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Kapi Event Organizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/pemilik/dashboard.css">
+    <script src="/js/pemilik/dashboard.js" defer></script> 
+</head>
+<body>
+    <header class="top-header">
+        <div class="brand-section">
+            <h1>Kapi Event Organizer</h1>
+            <p>Dashboard Pemilik Usaha</p>
+        </div>
+        <div class="user-section">
+            <div class="user-info">
+                <span class="name">Kapi (Pemilik)</span>
+                <span class="role">Pemilik Usaha</span>
+            </div>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="btn-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </button>
+            </form>
+        </div>
+    </header>
+    
+    <nav class="nav-tabs">
+        <a th:href="@{/pemilik/dashboard}" class="nav-item active">
+            <i class="fa-solid fa-users-gear"></i> Kelola Asisten
+        </a>
+        
+        <a th:href="@{/pemilik/vendor}" class="nav-item">
+            <i class="fa-solid fa-shop"></i> Kelola Vendor
+        </a>
+        
+        <a th:href="@{/pemilik/jenis-vendor}" class="nav-item">
+            <i class="fa-solid fa-tags"></i> Jenis Vendor
+        </a>
+        
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i> Laporan Vendor
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-calendar-check"></i> Laporan Event
+        </a>
+    </nav>
+    
+    <main class="main-container">
+        
+        <div class="content-header">
+            <div class="content-title">
+                <h2>Manajemen Asisten</h2>
+                <p>Kelola data asisten event organizer</p>
+            </div>
+            <button class="btn-add" onclick="tambahAsisten()">
+                <i class="fa-solid fa-plus"></i> Tambah Asisten
+            </button>
+        </div>
+        
+        <div class="table-card">
+            <table id="asistenTable">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Telepon</th>
+                        <th>Alamat</th>
+                        <th>Username</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="asisten : ${listAsisten}">
+                        <td th:text="${asisten.nama}">Nama Asisten</td>
+                        <td th:text="${asisten.email}">email@contoh.com</td>
+                        <td th:text="${asisten.notelp}">08123...</td>
+                        <td th:text="${asisten.alamat}">Alamat...</td>
+                        <td th:text="${asisten.username}">username</td>
+                        <td class="action-buttons">
+                            <button class="btn-icon btn-edit" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon btn-delete" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+1. Alur Kerja Persiapan Data (Oleh Pemilik/Kapi)
+
+
+
+Sebelum sistem dapat digunakan untuk transaksi, Pemilik harus mengisi data referensi terlebih dahulu.
+
+Login: Pemilik masuk ke sistem.
+
+Kelola Asisten:
+
+Pemilik menginput data asisten baru (Username, Password, Nama, Kontak).
+
+Kelola Jenis Vendor:
+
+Pemilik mendefinisikan kategori vendor (Misal: Katering, Dekorasi, Venue, MC).
+
+Kelola Data Vendor:
+
+Pemilik menginput data mitra vendor.
+
+Pemilik memasukkan Kisaran Harga standar untuk vendor tersebut (Misal: 5 - 50 Juta).
+
+Logout: Selesai melakukan manajemen data.
+
+
+
+2. Alur Kerja Operasional Event (Oleh Asisten)
+
+
+
+Ini adalah alur utama ketika Klien datang untuk menggunakan jasa EO.
+
+A. Registrasi Klien & Event
+
+Login: Asisten masuk ke sistem.
+
+Cek Data Klien:
+
+Apakah klien ini orang baru?
+
+Jika Ya: Asisten menginput data klien (Nama, Alamat, Kontak).
+
+Jika Tidak: Asisten mencari dan memilih data klien yang sudah ada.
+
+Buat Event Baru:
+
+Asisten membuat "Event Header" untuk klien tersebut.
+
+Input detail: Jenis Event (Sweet 17/Wedding), Tanggal Event, Jumlah Undangan, Lokasi.
+
+B. Pemilihan Vendor & Budgeting (Inti Sistem) 4. Pencarian Vendor: * Sistem menampilkan daftar kategori vendor. * Asisten memilih kategori (misal: "Kue Ulang Tahun"). * Sistem menampilkan daftar Vendor beserta Kisaran Harga. 5. Pemilihan & Input Harga Dealing: * Asisten (berdiskusi dengan Klien) memilih Vendor tertentu (misal: "Wombi"). * Asisten menginput Harga Dealing (Harga kesepakatan final, misal: 6 Juta). Catatan: Harga ini bisa berbeda dari kisaran harga master. 6. Looping (Pengulangan): * Langkah 4 dan 5 diulang untuk kebutuhan vendor lain (Dekor, MC, MUA) dalam satu event tersebut. 7. Kalkulasi Budget: * Sistem secara otomatis menjumlahkan seluruh Harga Dealing dari vendor yang dipilih. * Sistem menampilkan Total Perkiraan Budget. 8. Konfirmasi & Simpan: * Jika Klien setuju, Asisten menyimpan data event. Status event menjadi "Sedang Ditangani/Upcoming".
+
+
+
+3. Alur Kerja Pelaporan & Monitoring
+
+
+
+Untuk Asisten:
+
+Cari Event: Asisten mencari event berdasarkan nama klien atau tanggal.
+
+Lihat Rincian: Sistem menampilkan detail event beserta daftar vendor yang dipilih dan total biayanya.
+
+Cetak Laporan: Asisten dapat mencetak rincian budgeting untuk diberikan kepada klien.
+
+Untuk Pemilik (Kapi):
+
+Analisis Vendor: Pemilik membuka menu laporan vendor untuk melihat vendor mana yang paling sering dipilih (ranking popularitas).
+
+Monitoring Event:
+
+Pemilik melihat daftar event yang statusnya "Akan Datang".
+
+Pemilik melihat siapa asisten yang bertanggung jawab (PJ) untuk event tersebut.
