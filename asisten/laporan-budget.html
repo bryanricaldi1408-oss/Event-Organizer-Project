@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapi Event Organizer - Laporan Budget</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="./Assets/laporan-budget.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="brand">
+                <h1>Kapi Event Organizer</h1>
+                <p>Dashboard Asisten</p>
+            </div>
+            <div class="user-actions">
+                <div class="user-info">
+                    <p class="user-name">Dina Kusuma</p>
+                    <p class="user-role">Asisten</p>
+                </div>
+                <button class="btn btn-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tabs-container">
+        <div class="container">
+            <div class="tabs">
+                <a href="kelola-klien.html" class="tab">
+                    <i class="fa-solid fa-users"></i>
+                    Kelola Klien
+                </a>
+                <a href="kelola-event.html" class="tab">
+                    <i class="fa-regular fa-calendar"></i>
+                    Kelola Event
+                </a>
+                <a href="laporan-budget.html" class="tab active">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Laporan Budget
+                </a>
+                <a href="#" class="tab">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Event Saya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        
+        <div class="page-header">
+            <div>
+                <h2>Laporan Budget Event</h2>
+                <p class="subtitle">Rincian anggaran untuk setiap event</p>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <label for="eventSelect" class="input-label">Pilih Event</label>
+            <div class="select-wrapper">
+                <select id="eventSelect" class="form-select">
+                    <option>Dodo Prasetyo - Sweet 17 (Sabtu, 3 Januari 2026)</option>
+                    <option>Rina & Budi - Wedding (Minggu, 2 Februari 2026)</option>
+                </select>
+                <i class="fa-solid fa-chevron-down select-icon"></i>
+            </div>
+        </div>
+
+        <div class="budget-hero">
+            <div class="hero-icon">
+                <i class="fa-solid fa-dollar-sign"></i>
+            </div>
+            <div class="hero-content">
+                <p class="hero-label">Total Perkiraan Budget</p>
+                <p class="hero-sublabel">Dodo Prasetyo - Sweet 17</p>
+                <h1 class="hero-value">Rp 106.000.000</h1>
+                <p class="hero-date">Sabtu, 3 Januari 2026</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header-simple">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h3>Budget per Jenis Vendor</h3>
+            </div>
+            
+            <div class="progress-list">
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span class="p-label">Dekorasi</span>
+                        <span class="p-value">Rp 50.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 47.2%;"></div>
+                    </div>
+                    <p class="p-percent">47.2% dari total budget</p>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span class="p-label">Katering</span>
+                        <span class="p-value">Rp 30.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 28.3%;"></div>
+                    </div>
+                    <p class="p-percent">28.3% dari total budget</p>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span class="p-label">Fotografer</span>
+                        <span class="p-value">Rp 15.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 14.2%;"></div>
+                    </div>
+                    <p class="p-percent">14.2% dari total budget</p>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span class="p-label">Kue & Dessert</span>
+                        <span class="p-value">Rp 6.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 5.7%;"></div>
+                    </div>
+                    <p class="p-percent">5.7% dari total budget</p>
+                </div>
+
+                 <div class="progress-item">
+                    <div class="progress-info">
+                        <span class="p-label">MUA (Makeup Artist)</span>
+                        <span class="p-value">Rp 5.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 4.7%;"></div>
+                    </div>
+                    <p class="p-percent">4.7% dari total budget</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-6">
+            <div class="card-header-simple mb-4">
+                <i class="fa-regular fa-file-lines"></i>
+                <h3>Rincian Budget Detail</h3>
+            </div>
+            
+            <div class="table-wrapper-plain">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">No</th>
+                            <th style="width: 35%;">Vendor</th>
+                            <th style="width: 20%;">Jenis</th>
+                            <th style="width: 25%;">Harga Dealing</th>
+                            <th style="width: 15%;">% dari Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="font-medium">Wombi Cake & Bakery</td>
+                            <td><span class="badge badge-purple">Kue & Dessert</span></td>
+                            <td>Rp 6.000.000</td>
+                            <td>5.7%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="font-medium">Cahaya Dekorasi</td>
+                            <td><span class="badge badge-purple">Dekorasi</span></td>
+                            <td>Rp 50.000.000</td>
+                            <td>47.2%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="font-medium">Rasa Nusantara Catering</td>
+                            <td><span class="badge badge-purple">Katering</span></td>
+                            <td>Rp 30.000.000</td>
+                            <td>28.3%</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="font-medium">Lensa Indah Photography</td>
+                            <td><span class="badge badge-purple">Fotografer</span></td>
+                            <td>Rp 15.000.000</td>
+                            <td>14.2%</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="font-medium">Cantik Selamanya MUA</td>
+                            <td><span class="badge badge-purple">MUA (Makeup Artist)</span></td>
+                            <td>Rp 5.000.000</td>
+                            <td>4.7%</td>
+                        </tr>
+                        <tr class="font-bold bg-gray-50">
+                            <td colspan="3">Total</td>
+                            <td>Rp 106.000.000</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

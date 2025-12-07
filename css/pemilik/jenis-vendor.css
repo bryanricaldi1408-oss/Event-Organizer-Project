@@ -1,0 +1,89 @@
+/* --- RESET & GLOBAL CSS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background-color: #f9fafb; color: #374151; }
+
+/* --- HEADER (Sama seperti halaman lain) --- */
+.top-header { background-color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; }
+.brand-section h1 { font-size: 1.25rem; font-weight: 600; color: #111827; }
+.brand-section p { font-size: 0.85rem; color: #6b7280; }
+.user-section { display: flex; align-items: center; gap: 1.5rem; }
+.user-info { text-align: right; }
+.user-info .name { display: block; font-weight: 500; font-size: 0.9rem; }
+.user-info .role { font-size: 0.75rem; color: #6b7280; }
+.btn-logout { background-color: #dc2626; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: background 0.3s; }
+.btn-logout:hover { background-color: #b91c1c; }
+
+/* --- NAVIGATION TABS --- */
+.nav-tabs { background-color: white; padding: 0 2rem; display: flex; gap: 2rem; border-bottom: 1px solid #e5e7eb; overflow-x: auto; }
+.nav-item { padding: 1rem 0; color: #6b7280; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; border-bottom: 2px solid transparent; transition: all 0.3s; cursor: pointer; white-space: nowrap; }
+.nav-item.active { color: #9333ea; border-bottom-color: #9333ea; }
+.nav-item:hover { color: #9333ea; }
+
+/* --- MAIN CONTENT --- */
+.main-container { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+.content-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+.content-title h2 { font-size: 1.2rem; font-weight: 600; color: #111827; }
+.content-title p { font-size: 0.9rem; color: #6b7280; margin-top: 0.2rem; }
+.btn-add { background-color: #9333ea; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: background 0.3s; }
+.btn-add:hover { background-color: #7e22ce; }
+
+/* --- GRID LAYOUT (KHUSUS HALAMAN INI) --- */
+.card-grid {
+    display: grid;
+    /* Membuat 3 kolom otomatis, menyusut jadi 1 kolom di HP */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.category-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* Efek naik sedikit saat hover */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #d8b4fe; /* Border jadi ungu muda saat hover */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* --- ACTION BUTTONS --- */
+.card-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.btn-icon { background: none; border: none; cursor: pointer; font-size: 1rem; transition: transform 0.2s; }
+.btn-edit { color: #3b82f6; } /* Biru */
+.btn-delete { color: #ef4444; } /* Merah */
+.btn-icon:hover { transform: scale(1.2); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .user-section { width: 100%; justify-content: space-between; }
+}

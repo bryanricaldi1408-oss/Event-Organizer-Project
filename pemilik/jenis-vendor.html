@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenis Vendor - Kapi Event Organizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="/css/pemilik/jenis-vendor.css" rel="stylesheet">
+    <script src="/js/pemilik/jenis-vendor.js" defer></script>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="brand-section">
+            <h1>Kapi Event Organizer</h1>
+            <p>Dashboard Pemilik Usaha</p>
+        </div>
+        <div class="user-section">
+            <div class="user-info">
+                <span class="name">Kapi (Pemilik)</span>
+                <span class="role">Pemilik Usaha</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fa-solid fa-users-gear"></i> Kelola Asisten
+        </a>
+        <a href="vendor.html" class="nav-item">
+            <i class="fa-solid fa-shop"></i> Kelola Vendor
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-tags"></i> Jenis Vendor
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i> Laporan Vendor
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-calendar-check"></i> Laporan Event
+        </a>
+    </nav>
+
+    <main class="main-container">
+        
+        <div class="content-header">
+            <div class="content-title">
+                <h2>Manajemen Jenis Vendor</h2>
+                <p>Kelola kategori vendor event organizer</p>
+            </div>
+            <button class="btn-add" onclick="tambahKategori()">
+                <i class="fa-solid fa-plus"></i> Tambah Jenis Vendor
+            </button>
+        </div>
+
+        <div class="card-grid">
+            
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Venue</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Tempat untuk mengadakan acara seperti gedung, hotel, ballroom, dll</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Katering</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Penyedia makanan dan minuman untuk acara</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Fotografer</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Jasa dokumentasi foto untuk acara</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Videografer</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Jasa dokumentasi video untuk acara</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">MC (Master of Ceremony)</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Pembawa acara profesional</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Dekorasi</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Jasa dekorasi dan penataan venue</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Kue & Dessert</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Penyedia kue pengantin, birthday cake, dan dessert</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">MUA (Makeup Artist)</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Jasa tata rias dan makeup profesional</p>
+            </div>
+
+            <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Gaun & Dress</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Penyewaan atau pembuatan gaun dan dress</p>
+            </div>
+
+             <div class="category-card">
+                <div class="card-header">
+                    <h3 class="card-title">Musik & Hiburan</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-icon btn-delete" onclick="deleteCard(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <p class="card-desc">Band, DJ, atau entertainment untuk acara</p>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
