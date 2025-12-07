@@ -21,7 +21,6 @@ function tambahKlien() {
         modal.classList.add('show');
     }, 10);
 }
-
 function tutupModal() {
     modal.classList.remove('show');
     setTimeout(() => {
@@ -30,7 +29,6 @@ function tutupModal() {
         document.getElementById('formTambahKlien').reset();
     }, 300); // Sesuaikan dengan durasi transisi CSS
 }
-
 // 3. Fungsi Simpan Klien Baru (Pure JS DOM Manipulation)
 function simpanKlienBaru() {
     // Ambil value dari input

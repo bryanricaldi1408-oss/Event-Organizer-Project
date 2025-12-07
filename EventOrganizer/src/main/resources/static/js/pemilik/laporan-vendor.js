@@ -24,7 +24,6 @@ const formatRupiah = (number) => {
         style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0
     }).format(number).replace("IDR", "Rp").trim();
 }
-
 // 4. Helper Rank Class
 const getRankClass = (rank) => {
     if (rank === 1) return 'rank-1';

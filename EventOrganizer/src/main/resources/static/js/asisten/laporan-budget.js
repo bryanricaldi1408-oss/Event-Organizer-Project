@@ -22,7 +22,6 @@ const eventData = {
             { name: 'Cantik Selamanya MUA', type: 'MUA (Makeup Artist)', price: 5000000, percentage: 4.7 }
         ]
     },
-
     // Event 2: Rina & Budi - Wedding
     'rina_wedding': {
         name: 'Rina & Budi - Wedding',

@@ -20,7 +20,6 @@ function deleteCard(button) {
         }, 500);
     }
 }
-
 function tambahKategori() {
     alert('Fitur tambah kategori vendor akan muncul di sini.');
 }
