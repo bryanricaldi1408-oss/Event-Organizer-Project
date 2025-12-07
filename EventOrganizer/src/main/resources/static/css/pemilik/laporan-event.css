@@ -9,7 +9,7 @@
     background-color: white;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
-
+                 
 /* Header Style */
 .top-header { padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; }
 .brand-section h1 { font-size: 1.25rem; font-weight: 600; color: #111827; }
