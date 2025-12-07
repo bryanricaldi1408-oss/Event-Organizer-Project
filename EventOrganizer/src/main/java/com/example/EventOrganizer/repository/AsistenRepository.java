@@ -6,8 +6,6 @@ import java.util.Optional;
 
 // Menggunakan tipe data Integer untuk Primary Key (idAsisten)
 public interface AsistenRepository extends JpaRepository<Asisten, Integer> {
-    
     // Metode ini digunakan CustomUserDetailsService untuk mencari user
     Optional<Asisten> findByUsername(String username);
-
 }
