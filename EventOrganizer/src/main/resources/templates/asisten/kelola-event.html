@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapi Event Organizer - Kelola Event</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link th:href="@{/css/asisten/kelola-event.css}" rel="stylesheet">
+    <script th:src="@{/js/asisten/kelola-event.js}" defer></script> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="brand">
+                <h1>Kapi Event Organizer</h1>
+                <p>Dashboard Asisten</p>
+            </div>
+            <div class="user-actions">
+                <div class="user-info">
+                    <p class="user-name">Dina Kusuma</p>
+                    <p class="user-role">Asisten</p>
+                </div>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-logout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tabs-container">
+        <div class="container">
+            <div class="tabs">
+                <a th:href="@{/asisten/kelola-klien}" class="tab">
+                    <i class="fa-solid fa-users"></i>
+                    Kelola Klien
+                </a>
+                <a th:href="@{/asisten/kelola-event}" class="tab active">
+                    <i class="fa-regular fa-calendar"></i>
+                    Kelola Event
+                </a>
+                <a th:href="@{/asisten/laporan-budget}" class="tab">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Laporan Budget
+                </a>
+                <a th:href="@{/asisten/event-saya}" class="tab">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Event Saya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        
+        <div class="page-header">
+            <div>
+                <h2>Manajemen Event</h2>
+                <p class="subtitle">Kelola event dan vendor untuk setiap event</p>
+            </div>
+            <button class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i>
+                Tambah Event
+            </button>
+        </div>
+
+        <div class="event-list">
+            <div class="card" th:each="event : ${listEvent}">
+                <div class="card-header-row">
+                    <div class="event-title-group">
+                        <h3 th:text="${event.namaKlien}" class="event-name">Dodo Prasetyo</h3>
+                        <span th:text="${event.jenisEvent}" class="badge badge-blue">Sweet 17</span>
+                    </div>
+                    <div class="event-actions">
+                        <a th:href="@{'/asisten/event/edit/' + ${event.id}}" class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a th:href="@{'/asisten/event/delete/' + ${event.id}}" class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+
+                <div class="event-details-grid">
+                    <div class="detail-item">
+                        <label>Tanggal:</label>
+                        <p th:text="${event.tanggal}">3 Januari 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Undangan:</label>
+                        <p th:text="${event.jumlahUndangan} + ' orang'">200 orang</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Lokasi:</label>
+                        <p th:text="${event.lokasi}">Grand Ballroom Hotel Santika</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Total Budget:</label>
+                        <p th:text="${#numbers.formatCurrency(event.totalBudget)}" class="font-bold">Rp 106.000.000</p>
+                    </div>
+                </div>
+
+                <div class="vendor-section">
+                    <div class="vendor-header">
+                        <h4>Vendor yang Digunakan</h4>
+                        <a th:href="@{'/asisten/kelola-vendor/' + ${event.id}}" class="btn btn-sm btn-green">
+                            <i class="fa-solid fa-store"></i> Kelola Vendor
+                        </a>
+                    </div>
+
+                    <div class="vendor-grid">
+                        <div class="vendor-card" th:each="vendor : ${event.vendorList}">
+                            <div class="vendor-top">
+                                <span th:text="${vendor.nama}" class="vendor-name">Wombi Cake & Bakery</span>
+                                <span th:text="${vendor.jenis}" class="badge badge-purple">Kue & Dessert</span>
+                            </div>
+                            <p th:text="${#numbers.formatCurrency(vendor.harga)}" class="vendor-price">Rp 6.000.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        </main>
+        <div id="modalAddEvent" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Buat Event Baru</h3>
+                <button class="btn-close" onclick="closeModal('modalAddEvent')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); saveNewEvent()">
+                    <div class="form-group">
+                        <label>Nama Klien</label>
+                        <input type="text" id="addClientName" placeholder="Contoh: Keluarga Cemara" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Event</label>
+                        <select id="addEventType">
+                            <option value="Wedding">Wedding</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Sweet 17">Sweet 17</option>
+                            <option value="Corporate">Corporate</option>
+                            <option value="Reunion">Reunion</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Acara</label>
+                        <input type="text" id="addDate" placeholder="Contoh: 10 Agustus 2025" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah Undangan</label>
+                        <input type="number" id="addPax" placeholder="200" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Lokasi</label>
+                        <input type="text" id="addLocation" placeholder="Nama Gedung / Hotel" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('modalAddEvent')">Batal</button>
+                        <button type="submit" class="btn btn-primary">Buat Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEditEvent" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Edit Event</h3>
+                <button class="btn-close" onclick="closeModal('modalEditEvent')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); saveEditEvent()">
+                    <div class="form-group">
+                        <label>Nama Klien</label>
+                        <input type="text" id="editClientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Event</label>
+                        <select id="editEventType">
+                            <option value="Wedding">Wedding</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Sweet 17">Sweet 17</option>
+                            <option value="Corporate">Corporate</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Acara</label>
+                        <input type="text" id="editDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah Undangan (Orang)</label>
+                        <input type="number" id="editPax" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Lokasi</label>
+                        <input type="text" id="editLocation" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('modalEditEvent')">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalAddVendor" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Tambah Vendor</h3>
+                <button class="btn-close" onclick="closeModal('modalAddVendor')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 1rem;">
+                    Menambahkan vendor untuk event: <strong id="targetEventName"></strong>
+                </p>
+                <form onsubmit="event.preventDefault(); saveNewVendor()">
+                    <div class="form-group">
+                        <label>Nama Vendor</label>
+                        <input type="text" id="vendorName" placeholder="Contoh: Bunga Indah Florist" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Vendor</label>
+                        <select id="vendorType">
+                            <option value="Dekorasi">Dekorasi</option>
+                            <option value="Katering">Katering</option>
+                            <option value="Dokumentasi">Dokumentasi</option>
+                            <option value="Venue">Venue</option>
+                            <option value="Hiburan">Hiburan</option>
+                            <option value="Kue & Dessert">Kue & Dessert</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Biaya (Rp)</label>
+                        <input type="number" id="vendorPrice" placeholder="5000000" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('modalAddVendor')">Batal</button>
+                        <button type="submit" class="btn btn-green">Tambah Vendor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

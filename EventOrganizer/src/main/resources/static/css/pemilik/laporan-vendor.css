@@ -1,0 +1,107 @@
+/* --- 1. GLOBAL STYLE & HEADER (Standar Dashboard) --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background-color: #f9fafb; color: #374151; }
+
+/* Header Style */
+.top-header { background-color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; }
+.brand-section h1 { font-size: 1.25rem; font-weight: 600; color: #111827; }
+.brand-section p { font-size: 0.85rem; color: #6b7280; }
+
+.user-section { display: flex; align-items: center; gap: 1.5rem; }
+.user-info { text-align: right; }
+.user-info .name { display: block; font-weight: 500; font-size: 0.9rem; }
+.user-info .role { font-size: 0.75rem; color: #6b7280; }
+
+.btn-logout { background-color: #dc2626; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: background 0.3s; }
+.btn-logout:hover { background-color: #b91c1c; }
+
+/* Navigation Tabs Style */
+.nav-tabs { background-color: white; padding: 0 2rem; display: flex; gap: 2rem; border-bottom: 1px solid #e5e7eb; overflow-x: auto; }
+.nav-item { padding: 1rem 0; color: #6b7280; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; border-bottom: 2px solid transparent; transition: all 0.3s; cursor: pointer; white-space: nowrap; }
+
+.nav-item.active { color: #9333ea; border-bottom-color: #9333ea; }
+.nav-item:hover { color: #9333ea; }
+
+/* Main Container */
+.main-container { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+
+/* --- 2. SPECIFIC STYLE FOR LAPORAN PAGE --- */
+
+/* CSS Variables untuk komponen Laporan */
+:root {
+    --hero-gradient: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+    --rank-gold-bg: #FEF3C7; --rank-gold-text: #B45309;
+    --rank-silver-bg: #F3F4F6; --rank-silver-text: #4B5563;
+    --rank-bronze-bg: #FFF7ED; --rank-bronze-text: #9A3412;
+}
+
+.page-title { margin-bottom: 1.5rem; }
+.page-title h2 { font-size: 1.2rem; font-weight: 600; color: #111827; }
+.page-title p { font-size: 0.9rem; color: #6b7280; margin-top: 0.2rem; }
+
+/* Hero Card (Vendor Terbaik) */
+.hero-card {
+    background: var(--hero-gradient);
+    border-radius: 12px;
+    padding: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+}
+.hero-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.hero-icon { background-color: rgba(255, 255, 255, 0.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;}
+.hero-label { font-weight: 600; font-size: 1rem; }
+.hero-vendor-name { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+.hero-stats { font-size: 0.95rem; opacity: 0.9; }
+
+/* Filter Section */
+.filter-section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e5e7eb;
+}
+.filter-label { display: block; font-size: 0.9rem; font-weight: 500; color: #6b7280; margin-bottom: 0.5rem; }
+.filter-select {
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #374151;
+    width: 100%;
+    max-width: 300px;
+    outline: none;
+    font-family: inherit;
+}
+
+/* Table Style (Custom untuk Laporan) */
+.table-card { background-color: white; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+thead { background-color: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+th { padding: 1rem 1.5rem; font-size: 0.85rem; font-weight: 600; color: #6b7280; text-transform: uppercase; }
+td { padding: 1.25rem 1.5rem; font-size: 0.95rem; border-bottom: 1px solid #f3f4f6; vertical-align: middle; color: #1f2937; }
+tr:last-child td { border-bottom: none; }
+
+/* Komponen Tabel */
+.rank-circle {
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 0.85rem;
+}
+.rank-1 { background-color: var(--rank-gold-bg); color: var(--rank-gold-text); }
+.rank-2 { background-color: var(--rank-silver-bg); color: var(--rank-silver-text); }
+.rank-3 { background-color: var(--rank-bronze-bg); color: var(--rank-bronze-text); }
+
+.badge-type {
+    background-color: #f3e8ff; color: #9333ea;
+    padding: 0.3rem 0.8rem; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 500;
+}
+.trend-icon { color: #10B981; margin-right: 4px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .user-section { width: 100%; justify-content: space-between; }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapi Event Organizer - Tambah Klien</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Gaya minimal untuk form */
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; color: #555; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .btn-submit { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        .btn-submit:hover { background-color: #0056b3; }
+        .alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; margin-bottom: 20px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Tambah Klien Baru</h2>
+
+        <div th:if="${successMessage}" class="alert-success">
+            <p th:text="${successMessage}"></p>
+        </div>
+
+        <form th:action="@{/asisten/klien/save}" th:object="${klienBaru}" method="post">
+            
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="form-group">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" th:field="*{nama}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}">
+            </div>
+
+            <div class="form-group">
+                <label for="noTelp">Nomor Telepon</label>
+                <input type="text" id="noTelp" th:field="*{noTelp}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" th:field="*{alamat}">
+            </div>
+
+            <div class="form-group">
+                <label for="catatan">Catatan / Detail Event Awal</label>
+                <textarea id="catatan" th:field="*{catatan}"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Simpan Klien</button>
+            <a th:href="@{/asisten/kelola-klien}" style="margin-left: 10px;">Batal</a>
+        </form>
+    </div>
+</body>
+</html>
