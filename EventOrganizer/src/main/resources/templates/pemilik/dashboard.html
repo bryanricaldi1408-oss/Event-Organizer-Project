@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Kapi Event Organizer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link rel="stylesheet" th:href="@{/css/pemilik/dashboard.css}" />
+    <script th:src="@{/js/pemilik/dashboard.js}" defer></script>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="brand-section">
+            <h1>Kapi Event Organizer</h1>
+            <p>Dashboard Pemilik Usaha</p>
+        </div>
+        <div class="user-section">
+            <div class="user-info">
+                <span class="name">Kapi (Pemilik)</span> 
+                <span class="role">Pemilik Usaha</span>
+            </div>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="btn-logout" style="cursor: pointer; border:none; background:none; color:inherit;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <a th:href="@{/pemilik/dashboard}" class="nav-item active"><i class="fa-solid fa-users-gear"></i> Kelola Asisten</a>
+        <a th:href="@{/pemilik/vendor}" class="nav-item"><i class="fa-solid fa-shop"></i> Kelola Vendor</a>
+        <a th:href="@{/pemilik/jenis-vendor}" class="nav-item"><i class="fa-solid fa-tags"></i> Jenis Vendor</a>
+        <a th:href="@{/pemilik/laporan-vendor}" class="nav-item"><i class="fa-solid fa-chart-line"></i> Laporan Vendor</a>
+        <a th:href="@{/pemilik/laporan-event}" class="nav-item"><i class="fa-regular fa-calendar-check"></i> Laporan Event</a>
+    </nav>
+
+    <main class="main-container">
+        <div class="content-header">
+            <div class="content-title">
+                <h2>Manajemen Asisten</h2>
+                <p>Kelola data asisten event organizer</p>
+            </div>
+            <button class="btn-add" onclick="openAddModal()">
+                <i class="fa-solid fa-plus"></i> Tambah Asisten
+            </button>
+        </div>
+
+        <div class="table-card">
+            <table id="asistenTable">
+                <thead>
+                    <tr>
+                        <th>ID</th> 
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Telepon</th>
+                        <th>Alamat</th>
+                        <th>Username</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="asisten : ${listAsisten}">
+                        <td th:text="${asisten.id}">1</td> 
+                        <td th:text="${asisten.nama}">Dina Kusuma</td>
+                        <td th:text="${asisten.email}">dina@eo.com</td> 
+                        <td th:text="${asisten.noTelp}">0812xxxxxx</td>
+                        <td th:text="${asisten.alamat}">Jl. Kebon Jeruk No. 5</td>
+                        <td th:text="${asisten.username}">dina</td>
+                        <td>
+                            <a th:href="@{'/pemilik/asisten/edit/' + ${asisten.id}}">Edit</a> |
+                            <a th:href="@{'/pemilik/asisten/delete/' + ${asisten.id}}" 
+                            onclick="return confirm('Apakah Anda yakin ingin menghapus asisten ini?')">Hapus</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="formModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah Asisten</h3>
+                <button class="close-btn" onclick="closeModal('formModal')">&times;</button>
+            </div>
+            
+            <form th:action="@{/pemilik/asisten/save}" th:object="${asistenBaru}" method="post">
+                <input type="hidden" id="inputId" th:field="*{id}" /> 
+                
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="inputNama" th:field="*{nama}" required />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="inputEmail" th:field="*{email}" required />
+                </div>
+                <div class="form-group">
+                    <label>No Telepon</label>
+                    <input type="text" id="inputTelp" th:field="*{noTelp}" required />
+                </div>
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <input type="text" id="inputAlamat" th:field="*{alamat}" required />
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="inputUsername" th:field="*{username}" required />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" id="inputPassword" th:field="*{password}" required />
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('formModal')">Batal</button>
+                    <button type="submit" class="btn-save">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal-content" style="width: 350px;">
+            <div class="modal-header">
+                <h3>Konfirmasi Hapus</h3>
+                <button class="close-btn" onclick="closeModal('deleteModal')">&times;</button>
+            </div>
+            <p>Apakah Anda yakin ingin menghapus data asisten ini?</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeModal('deleteModal')">Batal</button>
+                <a id="confirmDeleteBtn" href="#" class="btn-delete-confirm">Ya, Hapus</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

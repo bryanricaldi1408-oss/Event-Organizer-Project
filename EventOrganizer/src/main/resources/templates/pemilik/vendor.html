@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Vendor - Kapi Event Organizer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/css/pemilik/dashboard.css" />
+
+    <style>
+        /* Styling Khusus untuk Tabel Vendor sesuai Gambar */
+        .vendor-info-cell {
+            display: flex; flex-direction: column;
+        }
+        .vendor-name { font-weight: 600; color: #333; font-size: 0.95rem; }
+        .vendor-sub { font-size: 0.8rem; color: #6b7280; margin-top: 2px; }
+        
+        /* Badge Jenis Vendor */
+        .badge-type {
+            padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: inline-block;
+        }
+        .bg-purple { background-color: #f3e8ff; color: #7e22ce; } /* Venue, Dekor */
+        .bg-pink { background-color: #fce7f3; color: #be185d; }   /* Kue */
+        .bg-blue { background-color: #dbeafe; color: #1d4ed8; }   /* Fotografer */
+        
+        /* Filter Box */
+        .filter-container {
+            background: white; padding: 15px 20px; border-radius: 8px; margin-bottom: 20px;
+            border: 1px solid #eee; display: flex; flex-direction: column;
+        }
+        .filter-container label { font-size: 0.85rem; color: #666; margin-bottom: 5px; }
+        .filter-container select {
+            padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; width: 100%; max-width: 300px;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="brand-section">
+            <h1>Kapi Event Organizer</h1>
+            <p>Dashboard Pemilik Usaha</p>
+        </div>
+        <div class="user-section">
+            <div class="user-info">
+                <span class="name">Kapi (Pemilik)</span>
+                <span class="role">Pemilik Usaha</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="/pemilik/dashboard" class="nav-item">
+            <i class="fa-solid fa-users-gear"></i> Kelola Asisten
+        </a>
+        <a href="/pemilik/vendor" class="nav-item active">
+            <i class="fa-solid fa-shop"></i> Kelola Vendor
+        </a>
+        <a href="/pemilik/jenis-vendor" class="nav-item">
+            <i class="fa-solid fa-tags"></i> Jenis Vendor
+        </a>
+        <a href="/pemilik/laporan-vendor" class="nav-item"><i class="fa-solid fa-chart-line"></i> Laporan Vendor</a>
+        <a href="/pemilik/laporan-event" class="nav-item"><i class="fa-regular fa-calendar-check"></i> Laporan Event</a>
+    </nav>
+
+    <main class="main-container">
+        <div class="content-header">
+            <div class="content-title">
+                <h2>Manajemen Vendor</h2>
+                <p>Kelola data vendor event organizer</p>
+            </div>
+            <button class="btn-add" onclick="tambahVendor()"> 
+                <i class="fa-solid fa-plus"></i> Tambah Vendor
+            </button>
+        </div>
+
+        <div class="filter-container">
+            <label>Filter Jenis Vendor</label>
+            <select id="vendorFilter" onchange="filterTable()">
+                <option value="all">Semua Jenis Vendor</option>
+                <option value="Venue">Venue</option>
+                <option value="Katering">Katering</option>
+                <option value="Dekorasi">Dekorasi</option>
+                <option value="Fotografer">Fotografer</option> 
+            </select>
+        </div>
+
+        <div class="table-card">
+            <table id="vendorTable">
+                <thead>
+                    <tr>
+                        <th width="25%">Nama Vendor</th>
+                        <th width="15%">Pemilik</th>
+                        <th width="15%">Jenis</th>
+                        <th width="20%">Kontak</th>
+                        <th width="15%">Kisaran Harga</th>
+                        <th width="10%">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="vendor-info-cell">
+                                <span class="vendor-name">Cahaya Dekorasi</span>
+                                <span class="vendor-sub">cahaya@dekor.com</span>
+                            </div>
+                        </td>
+
+                        <td>Rina Wijaya</td>
+
+                        <td>
+                            <span class="badge-type bg-purple">Dekorasi</span>
+                        </td>
+
+                        <td>
+                            <div class="vendor-info-cell">
+                                <span class="vendor-name">0812345678</span>
+                                <span class="vendor-sub">Jl. Mawar No. 5, Jakarta</span> 
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="vendor-info-cell">
+                                <span class="vendor-name">Rp 20.000.000</span>
+                                <span class="vendor-sub">Starting Price</span>
+                            </div>
+                        </td>
+                        <td class="action-buttons">
+                            <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon btn-delete" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="vendor-info-cell">
+                                <span class="vendor-name">Lensa Indah Photography</span>
+                                <span class="vendor-sub">lensa@indah.com</span>
+                            </div>
+                        </td>
+
+                        <td>Rudi Hartono</td>
+
+                        <td>
+                            <span class="badge-type bg-blue">Fotografer</span>
+                        </td>
+
+                        <td>
+                            <div class="vendor-info-cell">
+                                <span class="vendor-name">021-5555678</span>
+                                <span class="vendor-sub">Jl. Kenanga No. 12, Jakarta</span> 
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="vendor-info-cell">
+                                <span class="vendor-name">Rp 10.000.000</span>
+                                <span class="vendor-sub">Starting Price</span>
+                            </div>
+                        </td>
+                        <td class="action-buttons">
+                            <button class="btn-icon btn-edit"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon btn-delete" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="/js/pemilik/vendor.js" defer></script> 
+</body>
+</html>

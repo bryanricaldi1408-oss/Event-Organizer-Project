@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapi Event Organizer - Dashboard</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link th:href="@{/css/asisten/kelola-klien.css}" rel="stylesheet">
+    <script th:src="@{/js/asisten/kelola-klien.js}" defer></script> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="brand">
+                <h1>Kapi Event Organizer</h1>
+                <p>Dashboard Asisten</p>
+            </div>
+
+            <div class="user-actions">
+                <div class="user-info">
+                    <p class="user-name">Dina Kusuma</p>
+                    <p class="user-role">Asisten</p>
+                </div>
+                <form th:action="@{/logout}" method="post"> 
+                    <button type="submit" class="btn btn-logout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tabs-container">
+        <div class="container">
+            <div class="tabs">
+                <a th:href="@{/asisten/kelola-klien}" class="tab active">
+                    <i class="fa-solid fa-users"></i>
+                    Kelola Klien
+                </a>
+                <a th:href="@{/asisten/kelola-event}" class="tab">
+                    <i class="fa-regular fa-calendar"></i>
+                    Kelola Event
+                </a>
+                <a th:href="@{/asisten/laporan-budget}" class="tab">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Laporan Budget
+                </a>
+                <a th:href="@{/asisten/event-saya}" class="tab">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Event Saya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        
+        <div class="page-header">
+            <div>
+                <h2>Manajemen Klien</h2>
+                <p class="subtitle">Kelola data klien event organizer</p>
+            </div>
+            <button class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i>
+                Tambah Klien
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Nama</th>
+                        <th style="width: 15%;">Email</th>
+                        <th style="width: 12%;">Telepon</th>
+                        <th style="width: 20%;">Alamat</th>
+                        <th style="width: 25%;">Catatan</th>
+                        <th style="width: 13%; text-align: center;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-medium">Dodo Prasetyo</td>
+                        <td>dodo@email.com</td>
+                        <td>081234560001</td>
+                        <td>Jl. Gatot Subroto No. 100, Jakarta</td>
+                        <td>Klien untuk event Sweet 17 anak bungsunya</td>
+                        <td class="text-center">
+                            <button class="btn-icon btn-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button class="btn-icon btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+            </table>
+        </div>
+    </main>
+    <div id="modalTambah" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Tambah Klien Baru</h3>
+                <button class="btn-close" onclick="tutupModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="formTambahKlien" onsubmit="event.preventDefault(); simpanKlienBaru();">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="inputNama" required placeholder="Contoh: Budi Santoso">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="inputEmail" required placeholder="budi@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>No. Telepon</label>
+                        <input type="tel" id="inputTelp" required placeholder="0812...">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <input type="text" id="inputAlamat" required placeholder="Jl. Mawar No. 1">
+                    </div>
+                    <div class="form-group">
+                        <label>Catatan</label>
+                        <textarea id="inputCatatan" rows="3" placeholder="Deskripsi event..."></textarea>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="tutupModal()">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modalEdit" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Edit Data Klien</h3>
+                <button class="btn-close" onclick="tutupModalEdit()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditKlien" onsubmit="event.preventDefault(); simpanPerubahanEdit();">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="editNama" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No. Telepon</label>
+                        <input type="tel" id="editTelp" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <input type="text" id="editAlamat" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Catatan</label>
+                        <textarea id="editCatatan" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="tutupModalEdit()">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

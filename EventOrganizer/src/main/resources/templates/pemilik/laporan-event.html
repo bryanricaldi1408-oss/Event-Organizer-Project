@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Event - Kapi Event Organizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="/css/pemilik/laporan-event.css" rel="stylesheet">
+    <script src="/js/pemilik/laporan-event.js" defer></script>
+</head>
+<body>
+
+    <div class="sticky-top-container">
+        <header class="top-header">
+            <div class="brand-section">
+                <h1>Kapi Event Organizer</h1>
+                <p>Dashboard Pemilik Usaha</p>
+            </div>
+            <div class="user-section">
+                <div class="user-info">
+                    <span class="name">Kapi (Pemilik)</span>
+                    <span class="role">Pemilik Usaha</span>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <a href="/pemilik/dashboard" class="nav-item">
+                <i class="fa-solid fa-users-gear"></i> Kelola Asisten
+            </a>
+            <a href="/pemilik/vendor" class="nav-item">
+                <i class="fa-solid fa-shop"></i> Kelola Vendor
+            </a>
+            <a href="/pemilik/jenis-vendor" class="nav-item">
+                <i class="fa-solid fa-tags"></i> Jenis Vendor
+            </a>
+            <a href="/pemilik/laporan-vendor" class="nav-item">
+                <i class="fa-solid fa-chart-line"></i> Laporan Vendor
+            </a>
+            <a href="/pemilik/laporan-event" class="nav-item active">
+                <i class="fa-regular fa-calendar-check"></i> Laporan Event
+            </a>
+        </nav>
+    </div>
+
+    <main class="main-container">
+        
+        <div class="page-header">
+            <h2>Laporan Event</h2>
+            <p>Event yang perlu ditangani dan telah selesai</p>
+        </div>
+
+        <div class="toggle-container">
+            <button class="toggle-btn active" id="btnUpcoming" onclick="switchTab('upcoming')">
+                <i class="fa-regular fa-clock"></i> Event Mendatang (3)
+            </button>
+            <button class="toggle-btn" id="btnPast" onclick="switchTab('past')">
+                <i class="fa-regular fa-circle-check"></i> Event Selesai (2)
+            </button>
+        </div>
+
+        <div id="upcomingSection" class="section-content active">
+            <div class="event-list">
+                <div class="event-card">
+                    <div class="card-info">
+                        <h3>PT. Maju Sejahtera <span class="badge-event">Company Gathering</span></h3>
+                        <div class="date"><i class="fa-regular fa-calendar"></i> Selasa, 16 Desember 2025</div>
+                        <div class="assistant">Ditangani oleh: <span>Andi Pratama</span></div>
+                    </div>
+                    <div class="days-left-badge">15 hari lagi</div>
+                </div>
+
+                <div class="event-card">
+                    <div class="card-info">
+                        <h3>Dodo Prasetyo <span class="badge-event">Sweet 17</span></h3>
+                        <div class="date"><i class="fa-regular fa-calendar"></i> Rabu, 31 Desember 2025</div>
+                        <div class="assistant">Ditangani oleh: <span>Dina Kusuma</span></div>
+                    </div>
+                    <div class="days-left-badge">30 hari lagi</div>
+                </div>
+
+                <div class="event-card">
+                    <div class="card-info">
+                        <h3>Rina & Budi <span class="badge-event">Wedding</span></h3>
+                        <div class="date"><i class="fa-regular fa-calendar"></i> Jumat, 30 Januari 2026</div>
+                        <div class="assistant">Ditangani oleh: <span>Rika Sari</span></div>
+                    </div>
+                    <div class="days-left-badge">60 hari lagi</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pastSection" class="section-content">
+            <div class="event-list">
+                <div class="event-card">
+                    <div class="card-info">
+                        <h3>Ibu Susi Hartono <span class="badge-event">Birthday Party</span></h3>
+                        <div class="date"><i class="fa-regular fa-calendar-check"></i> Jumat, 21 November 2025</div>
+                        <div class="assistant">Ditangani oleh: <span>Dina Kusuma</span></div>
+                    </div>
+                    </div>
+
+                <div class="event-card">
+                    <div class="card-info">
+                        <h3>Keluarga Wijaya <span class="badge-event">Syukuran</span></h3>
+                        <div class="date"><i class="fa-regular fa-calendar-check"></i> Sabtu, 1 November 2025</div>
+                        <div class="assistant">Ditangani oleh: <span>Rika Sari</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
