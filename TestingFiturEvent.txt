@@ -1,0 +1,56 @@
+"Memastikan seluruh alur manajemen event—mulai dari pembuatan event, penambahan vendor, input harga nego, hingga kalkulasi budget—berjalan akurat, stabil, dan sesuai dengan desain UI yang telah disepakati."
+
+📋 Kartu Kanban (Testing Scenarios)
+Berikut adalah kartu-kartu yang harus masuk ke kolom To Do atau In Progress untuk tim QA/Tester:
+
+1. [QA] Test Scenario: Happy Path (Alur Sukses)
+Deskripsi: Menguji skenario normal di mana user memasukkan data yang benar.
+
+Checklist Pengujian:
+
+[ ] Buat Event Baru dengan data lengkap (Nama, Tanggal, Lokasi). --> Pastikan kartu event muncul.
+
+[ ] Tambah Vendor ke Event tersebut.
+
+[ ] Input Harga Dealing (misal: Rp 5.000.000).
+
+[ ] Verifikasi: Total Budget di header event bertambah tepat Rp 5.000.000.
+
+[ ] Verifikasi: Data tersimpan di database (cek via pgAdmin/MySQL Workbench/DBeaver).
+
+2. [QA] Test Scenario: Validasi Input (Negative Test)
+Deskripsi: Mencoba "merusak" sistem dengan memasukkan data yang aneh/salah untuk memastikan sistem aman.
+
+Checklist Pengujian:
+
+[ ] Input Tanggal Event di masa lalu. --> Harusnya gagal/muncul error.
+
+[ ] Kosongkan nama event saat membuat baru. --> Tombol simpan tidak boleh berfungsi.
+
+[ ] Input Harga Dealing negatif (minus). --> Harusnya ditolak.
+
+[ ] Input Harga Dealing berupa huruf (abcde). --> Harusnya tidak bisa diketik atau otomatis terhapus.
+
+3. [QA] Test Scenario: Akurasi Kalkulasi Budget
+Deskripsi: Memastikan logika matematika penjumlahan budget berjalan 100% akurat.
+
+Checklist Pengujian:
+
+[ ] Tambahkan 3 vendor dengan harga pecahan (misal: Rp 1.500.500 + Rp 2.000.000 + Rp 500).
+
+[ ] Cek Total Budget. --> Hasilnya harus Rp 3.501.000 (Pastikan tidak ada masalah koma/desimal yang aneh).
+
+[ ] Hapus satu vendor. --> Total budget harus berkurang otomatis sesuai harga vendor yang dihapus.
+
+[ ] Edit harga vendor (Update dealing price). --> Total budget harus menyesuaikan perubahan.
+
+4. [QA] Test Scenario: UI/UX & Responsiveness
+Deskripsi: Memastikan tampilan tidak berantakan saat dibuka di layar kecil atau saat data panjang.
+
+Checklist Pengujian:
+
+[ ] Buka di mode Mobile (lebar layar < 600px). --> Tabel vendor harus menjadi grid yang rapi (sesuai CSS media query kita).
+
+[ ] Masukkan nama event yang sangat panjang (Lorem Ipsum...). --> Layout tidak boleh pecah (text wrapping).
+
+[ ] Cek format mata uang (Rp) apakah titik pemisahnya benar (bukan koma).
