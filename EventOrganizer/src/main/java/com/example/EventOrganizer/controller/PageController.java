@@ -305,7 +305,6 @@ public class PageController {
         model.addAttribute("selectedEvent", selectedEvent);
         return "asisten/laporan-budget";
     }
-
     @GetMapping("/asisten/event-saya")
     public String showAsistenEventSaya(Model model) {
         List<Event> allEvents = getDummyEventList();
